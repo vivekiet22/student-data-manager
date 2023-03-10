@@ -15,7 +15,6 @@ exports.protect = async (req, res, next) => {
     req.user = decoded.id;
     next();
   } catch (err) {
-    console.log(err.message);
     res.status(401).json({ msg: err.message });
   }
 };

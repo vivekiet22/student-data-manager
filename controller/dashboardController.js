@@ -3,6 +3,16 @@ const User = require("../models/User");
 const Student = require('../models/Student')
 const csv = require("csvtojson")
 
+// fetch list of students from database
+exports.fetch = async (req,res)=>{
+  try {
+    students =await Student.find({})
+    return res.status(201).json({status:"success",students:students})
+  } catch (err) {
+    res.status(400).json({ status: "error", msg: err.message });
+  }
+}
+
 
 // add a list of students from csv
 exports.importStudent = async (req, res) => {
@@ -33,23 +43,23 @@ exports.importStudent = async (req, res) => {
 // export and download csv 
 exports.exportStudent = async (req, res) => {
   try {
-    let users = [];
-    let userData = await User.find({});
-    userData.forEach((user) => {
-      const { name, email } = user;
-      users.push({ name, email });
+    let students = [];
+    let studentData = await Student.find({});
+    studentData.forEach((student) => {
+      const { name, rollNo, address, institute ,course , email  } = student;
+      students.push({ name, rollNo, address, institute ,course , email });
     });
-    const csvFields = ["Name", "Email"];
+    const csvFields = ["Name", "Roll_No", "Address", "Institute", "Course","Email" ];
     const csvParser = new CsvParser({ csvFields });
-    const csvData = csvParser.parse(users);
+    const csvData =await csvParser.parse(students);
     res.setHeader("Content-Type", "text/csv");
     res.setHeader(
       "Content-Disposition",
       "attatchment:filename=studentData.csv"
     );
     res.status(200).end(csvData);
-  } catch (error) {
-    res.status(400).json({ status: "error", msg: error.message });
+  } catch (err) {
+    res.status(400).json({ status: "error", msg: err.message });
   }
 };
 

@@ -23,8 +23,11 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage:storage
 })
-
+router.use(authController.protect)
 router.post('/importStudent',upload.single('file'),dashboardController.importStudent);
+
 router.get("/exportStudent", dashboardController.exportStudent);
+
+router.get('/fetch',dashboardController.fetch);
 
 module.exports = router;
