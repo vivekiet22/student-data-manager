@@ -1,7 +1,19 @@
 {
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.1",
     "validator": "^13.9.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "student_data_manager",
+  "version": "1.0.0",
+  "description": "student data export and upload",
+  "main": "server.js",
+  "author": "Vivek Maddeshiya",
+  "license": "ISC"
 }
