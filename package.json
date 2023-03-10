@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "mongoose": "^7.0.1",
+    "validator": "^13.9.0"
+  }
+}
