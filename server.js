@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
 const dotenv = require("dotenv");
 
-
 const authRoute = require("./routes/authRoute");
+
+const dashboardRoute = require("./routes/dashboardRoute");
+
+
 
 
 
@@ -24,7 +26,10 @@ app.use(express.json());
 
 
 
+
+
 app.use("/", authRoute);
+app.use("/dashboard",dashboardRoute);
 
 
 const port = 5000;
