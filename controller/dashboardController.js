@@ -57,7 +57,7 @@ exports.exportStudent = async (req, res) => {
       "Content-Disposition",
       "attatchment:filename=studentData.csv"
     );
-    res.status(200).end(csvData);
+    res.status(200).send(csvData);
   } catch (err) {
     res.status(400).json({ status: "error", msg: err.message });
   }

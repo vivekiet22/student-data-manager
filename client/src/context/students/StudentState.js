@@ -28,9 +28,9 @@ const StudentState = (props) => {
     const response = await fetch(`${host}/dashboard/exportStudent`, {
       method: 'GET',
       headers: {
-        "Content-Type": "text/csv",
-        "Content-Disposition":"attatchment","filename":"studentData.csv",
-        "x-auth-token": localStorage.getItem('token')
+        "Content-Type": "application/json",
+        // "Content-Disposition":"attatchment","filename":"studentData.csv",
+        // "x-auth-token": localStorage.getItem('token')
 
       }
     });
