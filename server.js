@@ -6,7 +6,7 @@ const authRoute = require("./routes/authRoute");
 
 const dashboardRoute = require("./routes/dashboardRoute");
 
-
+let cors = require('cors')
 
 
 
@@ -25,7 +25,7 @@ try {
 app.use(express.json());
 
 
-
+app.use(cors())
 
 
 app.use("/", authRoute);

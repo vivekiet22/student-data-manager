@@ -2,6 +2,8 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -13,7 +15,11 @@
     "validator": "^13.9.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "server:dev": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "client-install": "npm install --prefix client",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client\""
   },
   "name": "student_data_manager",
   "version": "1.0.0",

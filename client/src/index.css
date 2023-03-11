@@ -131,11 +131,42 @@ font-style: normal;
 font-weight: 500;
 font-size: 16px;
 line-height: 150%;
-/* identical to box height, or 24px */
 color: #FFFFFF;
 
 background: #C95252 !important;
 border: 1px solid rgba(125, 131, 152, 0.3);
 box-shadow: 0px 3px 6px rgba(18, 18, 18, 0.03);
 border-radius: 6px;
+}
+.main-header {
+  max-width: 840px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.table-main {
+  max-width: 840px;
+  margin: auto;
+  border-radius: 10px;
+  border :1px solid #EEEAF5;
+}
+.table-header {
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+max-width: 843px;
+height: 41px;
+
+/* Header Fill */
+
+background: #F4F0FF;
+/* Stroke */
+
+border-bottom: 1px solid #EEEAF5;
+}
+
+.header-h {
+  margin-bottom: initial;
 }
