@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap'); */
 
 body {
   background: #FFFFFF;
+  font: inter
+  
 }
 
 .login {
-  width: 360px;
+  width: 342px;
   padding: 8% 0 0;
   margin: auto;
-  font-family: 'Comfortaa', cursive;
-  
 }
 
 .form {
@@ -17,24 +17,38 @@ body {
   z-index: 1;
   background: #FFFFFF;
   border-radius: 10px;
-  max-width: 342px;
+  max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
-  border :1px solid
-  }
+  border:1px solid #000000;
+  border-radius: 18px;
+}
 
 .form input {
-  outline: 0;
-  background: #f2f2f2;
+
+  width: 53px;
+  height: 20px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  /* identical to box height, or 100% */
+
+  text-align: center;
+
+  color: #6F6F6F;
+
+
   width: 100%;
-  border: 0;
-  border-radius: 5px;
+  border-radius: 8px;
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
-  font-family: 'Comfortaa', cursive;
+  font: inter;
 }
 
 .form input:focus {
@@ -42,10 +56,23 @@ body {
 }
 
 .form button {
-  font-family: 'Comfortaa', cursive;
+
+padding: 10px 20px;
+gap: 30px;
+
+
+height: 44px;
+
+background: #121212;
+border: 1px solid rgba(125, 131, 152, 0.3);
+box-shadow: 0px 3px 6px rgba(18, 18, 18, 0.03);
+border-radius: 6px;
+
+
+
+
   text-transform: uppercase;
   outline: 0;
-  background: #4b6cb7;
   width: 100%;
   border: 0;
   border-radius: 5px;
@@ -73,4 +100,42 @@ body {
   text-align: left;
   font-size: 10px;
   color: red;
+}
+.form-p {
+ text-decoration: none;
+width: 264px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 150%;
+color: #5300A7;
+
+}
+.form-or {
+ 
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 20px;
+
+}
+
+.form-withgoogle {
+  
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+color: #FFFFFF;
+
+background: #C95252 !important;
+border: 1px solid rgba(125, 131, 152, 0.3);
+box-shadow: 0px 3px 6px rgba(18, 18, 18, 0.03);
+border-radius: 6px;
 }
