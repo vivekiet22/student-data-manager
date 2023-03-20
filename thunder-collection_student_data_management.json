@@ -1,0 +1,140 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "student_data_management",
+    "dateExported": "2023-03-20T14:04:39.226Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "57c9b3fc-9c2b-4a86-a1a8-54f2a284474c",
+            "name": "user",
+            "containerId": "",
+            "created": "2023-03-10T08:45:17.843Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "6c9a86db-48d2-48d1-8adc-9cbeeb851f5a",
+            "name": "dashboard",
+            "containerId": "",
+            "created": "2023-03-10T08:45:42.465Z",
+            "sortNum": 20000,
+            "settings": {
+                "headers": [
+                    {
+                        "name": "x-auth-token",
+                        "value": "",
+                        "isDisabled": true
+                    }
+                ],
+                "tests": []
+            }
+        }
+    ],
+    "requests": [
+        {
+            "_id": "850ac383-f82a-45f1-a16d-72b4c2a5fd48",
+            "colId": "e67e9ffa-18cc-49c0-af2e-db86c85652b4",
+            "containerId": "57c9b3fc-9c2b-4a86-a1a8-54f2a284474c",
+            "name": "login",
+            "url": "http://localhost:5000/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-03-10T08:45:49.995Z",
+            "modified": "2023-03-11T17:00:25.443Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"anshul@gmail.com\",\n  \"password\":\"anshul@12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "caed4e99-1cc7-4ffa-b7cc-6b0efe8f0c45",
+            "colId": "e67e9ffa-18cc-49c0-af2e-db86c85652b4",
+            "containerId": "57c9b3fc-9c2b-4a86-a1a8-54f2a284474c",
+            "name": "signup",
+            "url": "http://localhost:5000/register",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-03-10T08:45:55.485Z",
+            "modified": "2023-03-11T17:00:01.561Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"anshul\",\n  \"email\":\"anshul@gmail.com\",\n  \"password\":\"anshul@12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "94332338-72bb-4ae7-8a94-e08915356376",
+            "colId": "e67e9ffa-18cc-49c0-af2e-db86c85652b4",
+            "containerId": "6c9a86db-48d2-48d1-8adc-9cbeeb851f5a",
+            "name": "import csv",
+            "url": "http://localhost:5000/dashboard/importStudent",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-03-10T10:35:55.666Z",
+            "modified": "2023-03-11T17:01:12.489Z",
+            "headers": [
+                {
+                    "name": "x-auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGNiMzkwZmFjZjM1NTU2YWU5ZWRhOCIsImlhdCI6MTY3ODU1NDAyNSwiZXhwIjoxNjc4NzI2ODI1fQ.VYj9xEatAzElxXrxjmkFAtJrQOE6pANoY3caMqqXqCY"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "file",
+                        "value": "c:\\Users\\vivek\\Downloads\\Sample Student sheet - Sheet1.csv"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "88fe527a-732a-4052-9af5-5f303931dcdd",
+            "colId": "e67e9ffa-18cc-49c0-af2e-db86c85652b4",
+            "containerId": "6c9a86db-48d2-48d1-8adc-9cbeeb851f5a",
+            "name": "export csv",
+            "url": "http://localhost:5000/dashboard/exportStudent",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-03-10T12:08:55.897Z",
+            "modified": "2023-03-11T17:01:55.005Z",
+            "headers": [
+                {
+                    "name": "x-auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGNiMzkwZmFjZjM1NTU2YWU5ZWRhOCIsImlhdCI6MTY3ODU1NDAyNSwiZXhwIjoxNjc4NzI2ODI1fQ.VYj9xEatAzElxXrxjmkFAtJrQOE6pANoY3caMqqXqCY"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "38d25b4e-fd61-4daa-a656-802b2d5b58c0",
+            "colId": "e67e9ffa-18cc-49c0-af2e-db86c85652b4",
+            "containerId": "6c9a86db-48d2-48d1-8adc-9cbeeb851f5a",
+            "name": "fetch all from databse",
+            "url": "http://localhost:5000/dashboard/fetch",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-03-10T14:01:25.302Z",
+            "modified": "2023-03-11T17:01:33.460Z",
+            "headers": [
+                {
+                    "name": "x-auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGNiMzkwZmFjZjM1NTU2YWU5ZWRhOCIsImlhdCI6MTY3ODU1NDAyNSwiZXhwIjoxNjc4NzI2ODI1fQ.VYj9xEatAzElxXrxjmkFAtJrQOE6pANoY3caMqqXqCY"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
