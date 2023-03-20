@@ -30,20 +30,20 @@
 
 
 ### Backend Task: 
-- [ ] Mercury
+
 - [x] Authentication (login & signup) with email & password + JWT token generation
-- User should be able to add a list of students to student table from a CSV file. 
-- CSV sheet can have multiple duplicate rows, you have to make sure that in database only unique rows should get inserted.
-- User should be able to see a list of students in UI fetched from database in a REST API
-- User should be able to export and download CSV file which contains list of all students stored in the Database.
+- [x] User should be able to add a list of students to student table from a CSV file. 
+- [x] CSV sheet can have multiple duplicate rows, you have to make sure that in database only unique rows should get inserted.
+- [x] User should be able to see a list of students in UI fetched from database in a REST API
+- [x] User should be able to export and download CSV file which contains list of all students stored in the Database.
 
 ### Frontend Task: 
 
-- Design a React APP which consists Authentication screen + Dashboard panel. Refer:  Figma File
-- You can hard code any email and password to by-pass the login screen and generate a random string as token to save in local storage as session cookies.
-- In dashboard, design an import export feature which can be handled through local storage of browser.
-- Import -> Try importing a CSV file having list of students and convert into JSON structure (CSV to JSON) and save into local storage (Key: StudentData, Value: JSON data)
-- Export -> On Export, Download the JSON file saved in local storage of browser
+- [x] Design a React APP which consists Authentication screen.
+- [] Design Dashboard panel. 
+- [] In dashboard, design an import export feature which can be handled through local storage of browser.
+- [] Import -> Try importing a CSV file having list of students and convert into JSON structure (CSV to JSON) and save into local storage (Key: StudentData, Value: JSON data)
+- [] Export -> On Export, Download the JSON file saved in local storage of browser
 
 
 
@@ -53,15 +53,39 @@
 
 ### Full Stack Task ->
 
-- Design Backend APIs + Frontend UI + Integrate APIs to give an end to end touch to the application.
-- In Frontend -> you have to drive Authentication + Import + Export + listing students, every feature through backend APIs not as mentioned in Frontend task
+- [] Design Backend APIs + Frontend UI + Integrate APIs to give an end to end touch to the application.
+
 
 https://user-images.githubusercontent.com/57106245/224502302-0925c378-ae02-40ab-bb3a-fa717c0c35f7.mp4
 
+## Getting Started
 
 
-### Contributing
+#### Install dependencies
+
+
+- npm, which you can install by running from the root directory and also from client folder: 
+
+    ```npm install ```
+
+- create .env file and store and set `  JWT_SECRET="any_string";`
+
+- Run this code from the root directory.
+
+    `npm run dev `
+
+
+## Contributing
 
 Everyone is welcomed to contribute to this project. You can contribute either by submitting bugs or suggesting improvements by opening an issue on GitHub.There are many feature available to add. Please see the [CONTRIBUTING](CONTRIBUTING.md) guidelines for more information.
 
+
+## Feature to Add
+
+### You can add these features which are not implemented as of now-
+-  Design Dashboard panel. 
+-  In dashboard, design an import export feature which can be handled through local storage of browser.
+-  Import -> Try importing a CSV file having list of students and convert into JSON structure (CSV to JSON) and save into local storage (Key: StudentData, Value: JSON data)
+-  Export -> On Export, Download the JSON file saved in local storage of browser
+-  Add notification feature to show when a user log in,sign up,import or export.
 
