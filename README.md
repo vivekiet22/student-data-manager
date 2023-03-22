@@ -65,11 +65,16 @@ https://user-images.githubusercontent.com/57106245/224502302-0925c378-ae02-40ab-
 #### Install dependencies
 
 
-- npm, which you can install by running from the root directory and also from client folder: 
+- run this command from your `root` directory and also from `client` folder 
 
     ```npm install ```
 
 - create .env file and store and set `  JWT_SECRET="any_string";`
+`NODE_ENV ="production"` and 
+`DB = 'mongodb://127.0.0.1:27017/student_data_manager'
+`
+- make sure you have installed mongoDB Compass if you are setting the database in your system
+
 
 - Run this code from the root directory.
 
