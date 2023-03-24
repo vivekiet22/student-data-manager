@@ -13,7 +13,7 @@ const Signup = (props) => {
             alert("Name or Email or Description cannot be blank")
         }
         else{
-            const response = await fetch("http://localhost:5000/register",{
+            const response = await fetch("api/register",{
                 method:"POST",
                 headers:{
                     'Content-Type':'application/json'
@@ -75,7 +75,7 @@ const Signup = (props) => {
             onChange={(e)=>{setPassword(e.target.value)}}
           />
 
-          <a className="form-p" href="#">
+          <a className="form-p" href="">
             Already have an account ? Login instead
           </a>
           <button type="submit" >Submit</button>
