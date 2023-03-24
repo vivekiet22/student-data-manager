@@ -2,13 +2,12 @@ import { useState } from "react";
 import StudentContext from "./studentContext";
 
 const StudentState = (props) => {
-  const host = "http://localhost:5000"
   const studentInitial = []
   const [students, setStudents] = useState(studentInitial)
   // Get all Students
   const getStudents =async () => {
     // :api call
-    const response = await fetch(`${host}/dashboard/fetch`, {
+    const response = await fetch(`api//dashboard/fetch`, {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +24,7 @@ const StudentState = (props) => {
   // Export CSV 
   const exportStudent =async () => {
     // api call
-    const response = await fetch(`${host}/dashboard/exportStudent`, {
+    const response = await fetch(`api/dashboard/exportStudent`, {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +42,7 @@ const StudentState = (props) => {
   // import from a csv file
   const importStudent =async () => {
     // API call
-    const response = await fetch(`${host}/dashboard/importStudent`, {
+    const response = await fetch(`api/dashboard/importStudent`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

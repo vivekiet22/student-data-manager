@@ -28,8 +28,8 @@ app.use(express.json());
 app.use(cors())
 
 
-app.use("/", authRoute);
-app.use("/dashboard",dashboardRoute);
+app.use("/api", authRoute);
+app.use("/api/dashboard",dashboardRoute);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
