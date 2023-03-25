@@ -44,7 +44,7 @@ const StudentState = (props) => {
   // Export CSV
   const exportStudent = async () => {
     // api call
-    const response = await fetch(`${url}/api/dashboard/exportStudent`, {
+    const response = await fetch(`/api/dashboard/exportStudent`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
