@@ -45,19 +45,19 @@ exports.exportStudent = async (req, res) => {
   try {
     let students = [];
     let studentData = await Student.find({});
-    studentData.forEach((student) => {
-      const { name, rollNo, address, institute ,course , email  } = student;
-      students.push({ name, rollNo, address, institute ,course , email });
-    });
-    const csvFields = ["Name", "Roll_No", "Address", "Institute", "Course","Email" ];
-    const csvParser = new CsvParser({ csvFields });
-    const csvData =await csvParser.parse(students);
-    res.setHeader("Content-Type", "text/csv");
-    res.setHeader(
-      "Content-Disposition",
-      "attatchment:filename=studentData.csv"
-    );
-    res.status(200).send(csvData);
+    // studentData.forEach((student) => {
+    //   const { name, rollNo, address, institute ,course , email  } = student;
+    //   students.push({ name, rollNo, address, institute ,course , email });
+    // });
+    // const csvFields = ["Name", "Roll_No", "Address", "Institute", "Course","Email" ];
+    // const csvParser = new CsvParser({ csvFields });
+    // const csvData =await csvParser.parse(students);
+    // res.setHeader("Content-Type", "text/csv");
+    // res.setHeader(
+    //   "Content-Disposition",
+    //   "attatchment:filename=studentData.csv"
+    // );
+    res.status(200).send(studentData);
   } catch (err) {
     res.status(400).json({ status: "error", msg: err.message });
   }

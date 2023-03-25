@@ -43,9 +43,10 @@ const Dashboard = (props) => {
                 Import Students
               </button>
             </form>
-            <button onClick={handleExport}>Export as CSV</button>
           </div>
+            <button onClick={handleExport}>Export as CSV</button>
         </div>
+        {students.length>0?
         <table className="table-main">
           <tbody>
             <tr className="table-header">
@@ -68,7 +69,9 @@ const Dashboard = (props) => {
             })}
           </tbody>
         </table>
-      </div>
+        :
+        "No data"
+      }</div>
     </>
   );
 };
