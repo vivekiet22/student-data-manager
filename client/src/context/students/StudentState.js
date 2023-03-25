@@ -48,7 +48,6 @@ const StudentState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        // "Content-Disposition":"attatchment","filename":"studentData.csv",
         "x-auth-token": localStorage.getItem("token"),
       },
     });
@@ -57,8 +56,6 @@ const StudentState = (props) => {
     await window.open("data:text/csv;charset=utf-8," + escape(csv))
 
     console.log(student);
-    // res.send({msg:"success"})
-    // setStudents(students.concat(student))
   };
 
   // import from a csv file
