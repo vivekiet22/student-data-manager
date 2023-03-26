@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import StudentContext from "./studentContext";
-
+import Papa from 'papaparse';
+import { sendCsvAsJson,readFile,convertCsvToJson } from "./importFunctions";
 const jsonDownload = async (objArray) => {
   var array = typeof objArray != "object" ? JSON.parse(objArray) : objArray;
   let str = "";
@@ -22,10 +23,35 @@ const jsonDownload = async (objArray) => {
   }
   return str
 };
+
+
+
+
+
 const StudentState = (props) => {
+
+  const [csvFile, setCsvFile] = useState(null);
+  const [jsonOutput, setJsonOutput] = useState(null);
+
+  const handleFileConversion = () => {
+    const fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      const csvData = event.target.result;
+      const json = Papa.parse(csvData, { header: true });
+      setJsonOutput(JSON.stringify(json.data));
+    };
+    fileReader.readAsText(csvFile);
+    
+  };
   const studentInitial = [];
   // const url = "http://localhost:5000";
   const [students, setStudents] = useState(studentInitial);
+
+  useEffect(() => {
+    console.log("gg guys",jsonOutput)
+  }, [jsonOutput])
+  
+
   // Get all Students
   const getStudents = async () => {
     // :api call
@@ -43,6 +69,7 @@ const StudentState = (props) => {
 
   // Export CSV
   const exportStudent = async () => {
+    
     // api call
     const response = await fetch(`/api/dashboard/exportStudent`, {
       method: "GET",
@@ -50,6 +77,7 @@ const StudentState = (props) => {
         "Content-Type": "application/json",
         "x-auth-token": localStorage.getItem("token"),
       },
+      
     });
     const student = await response.json();
     const csv =await jsonDownload(student)
@@ -59,25 +87,35 @@ const StudentState = (props) => {
   };
 
   // import from a csv file
-  const importStudent = async () => {
+  const importStudent = async (evt) => {
     // API call
-    const response = await fetch(`/api/dashboard/importStudent`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": localStorage.getItem("token"),
-      },
-    });
+    console.log("import in student state")
+    // console.log(evt)
+    const file = evt.target.files[0];
+    // setCsvFile(file);
+    // handleFileConversion()
 
-    const student = await response.json();
-    console.log(student);
-    // getSt
-    setStudents(students.concat(student));
+    // const response = await fetch(`http://localhost:5000/api/dashboard/importStudent`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "x-auth-token": localStorage.getItem("token"),
+    //   },
+    //   body: JSON.stringify({jsonOutput})
+    
+    // });
+    const response = await sendCsvAsJson(`/api/dashboard/importStudent`,file)
+
+
+    // const student = await response.json();
+    // console.log(student);
+    // // getSt
+    // setStudents(students.concat(student));
   };
 
   return (
     <StudentContext.Provider
-      value={{ students, getStudents, exportStudent, importStudent }}
+      value={{ students,jsonOutput,setJsonOutput, getStudents, exportStudent, importStudent }}
     >
       {props.children}
     </StudentContext.Provider>

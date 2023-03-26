@@ -18,22 +18,24 @@ exports.fetch = async (req,res)=>{
 exports.importStudent = async (req, res) => {
   try {
     let userData = []
-    await csv().fromFile(req.file.path).then(async (response)=>{
+    let jsonOutput =await  req.body
+    //  console.log(req.body)
+    // console.log("json body is ", jsonOutput)
       
-      for (let x = 0;x<response.length;x++){
-        userData.push({
-          name:response[x].Name,
-          rollNo:response[x].Roll_No,
-          address:response[x].Address,
-          institute:response[x].Institute,
-          course:response[x].Course,
-          email:response[x].Email,
-        })
+    for (let x = 0;x<jsonOutput.length;x++){
+      userData.push({
+        name:jsonOutput[x].Name,
+        rollNo:jsonOutput[x].Roll_No,
+        address:jsonOutput[x].Address,
+        institute:jsonOutput[x].Institute,
+        course:jsonOutput[x].Course,
+        email:jsonOutput[x].Email,
+      })
       }
-    })
+    console.log("user data ", userData)
     
     await Student.insertMany(userData).catch(()=>{});
-    res.status(201).json({ status: "success",msg:"File Imported successfully" });
+    res.status(201).json({ status: "success",msg:"File Imported successfully",db:userData });
   } catch (err) {
     res.status(400).json({ status: "error", msg: err.message });
   }
